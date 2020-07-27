@@ -5,7 +5,7 @@ import {
 
 
 
-
+//Header of the login/signup page.
 export const HeaderHome = () => { 
 return (
     <header className="header" data-testid="header">

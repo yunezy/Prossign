@@ -6,7 +6,7 @@ import { firebase } from '../firebase';
 import { useSelectedProjectValue } from '../context';
 import { ProjectOverlay } from './ProjectOverlay';
 
-
+//Add new task to To-Do section and Corresponding project.
 export const AddTask = ({
   showAddTaskMain = true,
   shouldShowMain = false,
@@ -41,6 +41,7 @@ export const AddTask = ({
           task,
           date: collatedDate,
           userId: firebase.auth().currentUser.uid,
+          email: firebase.auth().currentUser.email,
         })
         .then(() => {
           setTask('');

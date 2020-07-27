@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { firebase } from '../firebase';
 import { HeaderHome } from './layout/HeaderHome';
 
-
-
+//Log-in / Sign-up function of the app
 class Login extends Component {
 
   constructor(props) {
@@ -33,6 +32,7 @@ class Login extends Component {
 
   signup(e){
     e.preventDefault();
+
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
     }).then((u)=>{console.log(u)})
     .catch((error) => {
@@ -40,7 +40,14 @@ class Login extends Component {
       console.log(errorMessage);
       
       })
+    .then(
+      firebase.firestore().collection('users').add({
+        email: this.state.email,
+      })
+    )
+      
   }
+
 
   render(){
     return(
@@ -77,7 +84,7 @@ class Login extends Component {
               placeholder="e.g: 123456" />
           </div>
           <button type="submit" onClick={this.login} className="login__login">Login</button>
-          <button onClick={this.signup} style={{marginLeft:'25px'}} className="login__signup">Signup</button>
+          <button onClick={this.signup } style={{marginLeft:'25px'}} className="login__signup">Signup</button>
         </form>
       </div>
     );

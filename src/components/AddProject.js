@@ -4,6 +4,7 @@ import { firebase } from '../firebase';
 import { generatePushId } from '../helpers';
 import { useProjectsValue } from '../context';
 
+//Add new project
 export const AddProject = ({ shouldShow = false }) => {
   const [show, setShow] = useState(shouldShow);
   const [projectName, setProjectName] = useState('');
@@ -20,6 +21,7 @@ export const AddProject = ({ shouldShow = false }) => {
         projectId,
         name: projectName,
         userId: firebase.auth().currentUser.uid,
+        email: firebase.auth().currentUser.email,
       })
       .then(() => {
         setProjects([...projects]);

@@ -5,6 +5,8 @@ import {
   FaColumns,
 } from 'react-icons/fa';
 
+
+//Header of App
 export const Header = () => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);

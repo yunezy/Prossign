@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {firebase} from '../firebase';
 
+//Archive the tasks so that they no longer appears in Completed Section.
 export const ArchiveTask = ({id, taskDesc} ) => {
     const[showArchive, setShowArchive] = useState(false);
     const ArchiveTask = () => {

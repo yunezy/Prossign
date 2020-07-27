@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {firebase} from '../firebase';
 import moment from 'moment';
 
+
+//Checkbox to mark the tasks as Completed
 export const Checkbox = ({id, taskDesc} ) => {
     const[showComplete, setShowComplete] = useState(false);
     const completeTask = () => {

@@ -15,8 +15,10 @@ class App extends Component {
 
   componentDidMount() {
     this.authListener();
+    
   }
 
+  
   authListener() {
     firebase.auth().onAuthStateChanged((user) => {
       console.log(user);
@@ -28,11 +30,15 @@ class App extends Component {
         localStorage.removeItem('user');
       }
     });
+
   }
+
+ 
 
   render(){
     return(
-      <div>{this.state.user ? ( <Home /> ) : (<Login />)}</div>
+        <div>{this.state.user ? ( <Home /> ) : (<Login />)}</div>
+      
     );
   }
 }
