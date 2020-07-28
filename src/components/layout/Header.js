@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AddTask } from '../AddTask';
-import {firebase} from '../../firebase'
+import {firebase} from '../../firebase';
 import {
   FaColumns,
 } from 'react-icons/fa';
@@ -10,8 +10,9 @@ import {
 export const Header = () => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
-  const logout = () =>
-  firebase.auth().signOut();
+  const Logout = () => {
+    firebase.auth().signOut();
+  }
 
   return (
     <header className="header" data-testid="header">
@@ -35,7 +36,7 @@ export const Header = () => {
                   setShouldShowMain(true);
                 }}
               >
-                +
+                + Task
               </button>
             </li>
             
@@ -44,8 +45,8 @@ export const Header = () => {
               data-test-id="logout"
               aria-label="logout on/off"
               type="button"
-              onClick={() => logout()}>
-                logout 
+              onClick={() => Logout()}>
+                log out {firebase.auth().currentUser.email}
               </button>
             </li>
           </ul>
