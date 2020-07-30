@@ -16,6 +16,7 @@ export const AddTask = ({
   const [project, setProject] = useState('');
   const [showMain, setShowMain] = useState(shouldShowMain);
   const [showProjectOverlay, setShowProjectOverlay] = useState(false);
+  const [partners, setPartners] = useState('');
 
   const { selectedProject } = useSelectedProjectValue();
 
@@ -38,12 +39,14 @@ export const AddTask = ({
           date: collatedDate,
           userId: firebase.auth().currentUser.uid,
           email: firebase.auth().currentUser.email,
+          partners,
         })
         .then(() => {
           setTask('');
           setProject('');
           setShowMain('');
           setShowProjectOverlay(false);
+          setPartners('');
         })
     );
   };
@@ -113,6 +116,16 @@ export const AddTask = ({
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
+          <span className="add-task__collaborateWtih">Collaborate With: </span>
+          <input
+            className="add-task__partner"
+            class="add-task__partner"
+            type="text"
+            aria-label= "Enter your partner"
+            placeholder="Enter partners' emails"
+            value = {partners}
+            onChange = {(e) => setPartners(e.target.value)}
+             />
           <button
             type="button"
             className="add-task__submit"

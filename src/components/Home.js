@@ -7,9 +7,6 @@ import { ProjectsProvider, SelectedProjectProvider } from '../context';
 //Main display of the app
 class Home extends Component{
   
-
-
-
 render(){
   return (
     
