@@ -53,7 +53,7 @@ export const Tasks = () => {
           </li>
         ))}
       </ul>
-      {projectName == 'Completed'? undefined : <AddTask />}
+      {projectName === 'Completed'? undefined : <AddTask />}
     
       
     </div>

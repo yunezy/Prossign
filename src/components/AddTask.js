@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
-import moment from 'moment';
+import { FaRegListAlt } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { firebase } from '../firebase';
 import { useSelectedProjectValue } from '../context';
@@ -24,9 +23,6 @@ export const AddTask = ({
     const projectId = project || selectedProject;
     let collatedDate = '';
 
-    if (projectId === 'COMPLETED') {
-      collatedDate = moment().format('DD/MM/YYYY');
-    }
 
     return (
       task &&
