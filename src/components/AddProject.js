@@ -11,6 +11,7 @@ export const AddProject = ({ shouldShow = false }) => {
 
   const projectId = generatePushId();
   const { projects, setProjects } = useProjectsValue();
+  const [partners, setPartners] = useState('');
 
   const addProject = () =>
     projectName &&
@@ -22,11 +23,13 @@ export const AddProject = ({ shouldShow = false }) => {
         name: projectName,
         userId: firebase.auth().currentUser.uid,
         email: firebase.auth().currentUser.email,
+        partners,
       })
       .then(() => {
         setProjects([...projects]);
         setProjectName('');
         setShow(false);
+        setPartners('');
       });
 
   return (
@@ -40,6 +43,17 @@ export const AddProject = ({ shouldShow = false }) => {
             data-testid="project-name"
             type="text"
             placeholder="Name your project"
+          />
+          <span className="add-project__partners__text">
+            Collaborate With:
+          </span>
+          <input
+            value={partners}
+            onChange={(e) => setPartners(e.target.value)}
+            className="add-project__partners"
+            data-testid="project-partners"
+            type="text"
+            placeholder="Enter Partners' Email"
           />
           <button
             className="add-project__submit"
