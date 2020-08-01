@@ -1,10 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Prossign
 
-In the project directory, you can run:
+This is a Web app using React that allows users to assign projects and tasks to other users and share their progress.
 
-### `npm start`
+## Run This project under macOS
+
+Under project directory, type
+
+### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
